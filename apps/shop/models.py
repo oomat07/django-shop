@@ -9,7 +9,7 @@ class Category(models.Model):
         unique_together = ('slug', 'parent')
         verbose_name_plural = 'categories'
 
-        def __str__(self) -> str:
+    def __str__(self) -> str:
             return self.name
 
 
