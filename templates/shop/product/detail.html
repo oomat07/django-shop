@@ -4,9 +4,17 @@
 
 {% block content %}
     <div>
-        <img width=700px src="{{ product.image.url }}" alt="{{ product.name }}">
+        <img width="200px" src="{{ product.image.url }}" alt="{{ product.name }}">
         <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
         <p>{{ product.price }}$</p>
     </div>
+    <form action="{% url 'cart_add' product.id %}" method="post">
+        {% csrf_token %}
+        <label for="quantity">Количество:</label>
+        <input type="number" name="quantity" value="1" min="1" max="9" id="quantity">
+        <input type="hidden" name="update" value="False">
+        <button type="submit">Добавить в корзину</button>
+    </form>
+    
 {% endblock %}

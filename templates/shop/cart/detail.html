@@ -1,4 +1,4 @@
-{% extends "shop/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <h2>Корзина покупок</h2>
@@ -15,7 +15,7 @@
             <td>{{ item.product.name }}</td>
             <td>{{ item.quantity }}</td>
             <td>
-                <a href="{% url 'shop:cart_remove' item.product.id %}">Удалить</a>
+                <a href="{% url 'cart_remove' item.product.id %}">Удалить</a>
             </td>
             <td>${{ item.price }}</td>
             <td>${{ item.total_price }}</td>
