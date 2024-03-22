@@ -5,7 +5,7 @@ class CartAddProducrtForm(forms.Form):
     update = forms.BooleanField(required=False, initial=False, widget=forms.HiddenInput)
 
 
-class OrderCreateForm(forms.Form):
+class OrderCreateForm(forms.ModelForm):
     
     class Meta:
         model = Order
