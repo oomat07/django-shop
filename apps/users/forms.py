@@ -40,9 +40,13 @@ class UserRegistrationForm(UserCreationForm):
         'class': 'form-control', 'type': 'password', 'placeholder': 'Подтвердите пароль'
     }))
 
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control', 'placeholder': 'Введите номер телефона'
+    }))
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2', 'phone_number')
  
     def save(self, commit=True):
         user = super(UserRegistrationForm, self).save(commit=True)
