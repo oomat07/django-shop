@@ -3,6 +3,7 @@ from .models import Category, Product, OrderItem
 from django.views.decorators.http import require_POST
 from .cart import Cart
 from .forms import CartAddProducrtForm, OrderCreateForm
+from django.contrib.auth.decorators import login_required
 
 
 def product_list(request, category_slug=None):
@@ -42,7 +43,7 @@ def cart_detail(request):
     cart = Cart(request)
     return render(request, 'shop/cart/detail.html', {'cart' : cart})
 
-
+@login_required
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
